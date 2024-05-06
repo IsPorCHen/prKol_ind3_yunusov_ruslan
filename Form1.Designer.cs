@@ -36,7 +36,6 @@ namespace _15prakt
             this.label3 = new System.Windows.Forms.Label();
             this.z1Coordinate = new System.Windows.Forms.TextBox();
             this.addVectorA = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.addVectorB = new System.Windows.Forms.Button();
@@ -48,6 +47,7 @@ namespace _15prakt
             this.x2Coordinate = new System.Windows.Forms.TextBox();
             this.solveVestorC = new System.Windows.Forms.Button();
             this.additional = new System.Windows.Forms.CheckBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // x1Coordinate
@@ -107,14 +107,6 @@ namespace _15prakt
             this.addVectorA.Text = "Добавить вектор";
             this.addVectorA.UseVisualStyleBackColor = true;
             this.addVectorA.Click += new System.EventHandler(this.addVectorA_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(426, 43);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(368, 199);
-            this.listBox1.TabIndex = 7;
             // 
             // label4
             // 
@@ -194,7 +186,7 @@ namespace _15prakt
             // 
             // solveVestorC
             // 
-            this.solveVestorC.Location = new System.Drawing.Point(509, 248);
+            this.solveVestorC.Location = new System.Drawing.Point(508, 391);
             this.solveVestorC.Name = "solveVestorC";
             this.solveVestorC.Size = new System.Drawing.Size(165, 23);
             this.solveVestorC.TabIndex = 17;
@@ -205,18 +197,27 @@ namespace _15prakt
             // additional
             // 
             this.additional.AutoSize = true;
-            this.additional.Location = new System.Drawing.Point(426, 252);
+            this.additional.Location = new System.Drawing.Point(425, 395);
             this.additional.Name = "additional";
             this.additional.Size = new System.Drawing.Size(77, 17);
             this.additional.TabIndex = 18;
             this.additional.Text = "Сложение";
             this.additional.UseVisualStyleBackColor = true;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(425, 28);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(383, 251);
+            this.listBox1.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 450);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.additional);
             this.Controls.Add(this.solveVestorC);
             this.Controls.Add(this.label5);
@@ -228,7 +229,6 @@ namespace _15prakt
             this.Controls.Add(this.label8);
             this.Controls.Add(this.x2Coordinate);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.addVectorA);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.z1Coordinate);
@@ -253,7 +253,6 @@ namespace _15prakt
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox z1Coordinate;
         private System.Windows.Forms.Button addVectorA;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button addVectorB;
@@ -265,6 +264,7 @@ namespace _15prakt
         private System.Windows.Forms.TextBox x2Coordinate;
         private System.Windows.Forms.Button solveVestorC;
         private System.Windows.Forms.CheckBox additional;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

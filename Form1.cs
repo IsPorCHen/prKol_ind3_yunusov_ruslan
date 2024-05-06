@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,8 +17,9 @@ namespace _15prakt
     {
         Vectors vectorA;
         Vectors vectorB;
+        Vectors vectorC;
 
-        List<Vectors> vectorsList;
+        ArrayList vectors = new ArrayList();
 
         public Form1()
         {
@@ -26,32 +28,23 @@ namespace _15prakt
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
         }
 
         private Vectors CorrectInputs(string xText, string yText, string zText)
         {
-            Vectors vector;
-
-            if (xText != "" && yText != "" && zText != "")
+            if (double.TryParse(xText, out double x) && double.TryParse(yText, out double y)
+                && double.TryParse(zText, out double z))
             {
-                if (double.TryParse(xText, out double x) && double.TryParse(yText, out double y)
-                    && double.TryParse(zText, out double z))
-                {
-                    return vector = new Vectors(x, y, z);
-                }
-                else
-                {
-                    MessageBox.Show("Не удалось преобразовать координаты в double", "Ошибка преобразования");
-                    return vector = new Vectors(0, 0, 0);
-                }
+                MessageBox.Show("Вектор добавлен", "Операция успешна");
+                return new Vectors(x, y, z);
             }
             else
             {
-                MessageBox.Show("Обнаружены пустые поля", "Ошибка ввода");
-                return vector = new Vectors(0, 0, 0);
+                MessageBox.Show("Не удалось преобразовать координаты в double", "Ошибка преобразования");
+                return null;
             }
         }
+
 
         private void addVectorA_Click(object sender, EventArgs e)
         {
@@ -64,12 +57,31 @@ namespace _15prakt
 
         private void solveVestorC_Click(object sender, EventArgs e)
         {
-            vectorsList.Add(vectorA);
-            vectorsList.Add(vectorB);
+            vectorC = new Vectors();
 
-            foreach (var vector in vectorsList)
+            vectorC = vectorC.ArithmeticOperationsOnVectors(additional.Checked, vectorA, vectorB);
+
+            if (vectorC != null)
             {
-                listBox1.Items.Add(vector.GetSetVector[0].ToString());
+                vectors.Add(vectorA);
+                vectors.Add(vectorB);
+                vectors.Add(vectorC);
+
+                foreach (Vectors vector in vectors)
+                {
+                    listBox1.Items.Add($"Координаты вектора: ({vector.GetCoordinates[0]}, " +
+                        $"{vector.GetCoordinates[1]}, " +
+                        $"{vector.GetCoordinates[2]})");
+                }
+
+                listBox1.Items.Add($"Скалярное произведение: {vectorA.DotProduct(vectorB)}");
+                listBox1.Items.Add($"Длина вектора А: {vectorA.Magnitude()}");
+                listBox1.Items.Add($"Длина вектора А: {vectorB.Magnitude()}");
+                listBox1.Items.Add($"Косинус между векторами А и Б: {vectorA.CosineAngle(vectorB)}");
+            }
+            else
+            {
+                MessageBox.Show("Не удалось преобразовать введеные поля в double");
             }
         }
     }
